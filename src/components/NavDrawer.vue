@@ -48,7 +48,14 @@
 
 <script>
 export default {
+  mounted () {
+    this.$root.$on("show_or_hide_nav_drawer", (drawer) => {
+      this.drawer = drawer;
+    })
+  },
+  
   data: () => ({
+    drawer: true,
     items: [
       { icon: "contacts", text: "Contacts" },
       { icon: "history", text: "Frequently contacted" },

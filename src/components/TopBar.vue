@@ -1,7 +1,7 @@
 <template>
   <v-app-bar :clipped-left="$vuetify.breakpoint.lgAndUp" app color="blue darken-3" dark>
     <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click.stop="showDrawer"></v-app-bar-nav-icon>
       <span class="hidden-sm-and-down">Google Contacts</span>
     </v-toolbar-title>
     <v-text-field
@@ -26,3 +26,17 @@
     </v-btn>
   </v-app-bar>
 </template>
+
+<script>
+export default {
+  data: () => ({
+    drawer: true
+  }),
+  methods: {
+    showDrawer() {
+      this.drawer = !this.drawer;
+      this.$root.$emit("show_or_hide_nav_drawer", this.drawer);
+    }
+  }
+};
+</script>
